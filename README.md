@@ -2,7 +2,7 @@
 
 本專案是我個人整理的天線開放式課程講義，供自學與複習使用。
 
-課程來源為陳晏笙老師的[「天線」開放式課程](https://www.youtube.com/playlist?list=PL68D2uCy1WTMR9iwyjtOZcjGMom4KZEhZ)。本 repo 收錄課程導讀及 28 個單元，每份講義均提供 Markdown 閱讀版本與原始 PDF 下載。
+課程來源為陳晏笙老師的[「天線」開放式課程](https://www.youtube.com/playlist?list=PL68D2uCy1WTMR9iwyjtOZcjGMom4KZEhZ)。本 repo 收錄課程導讀及 28 個單元，每份講義均提供 Markdown 閱讀版本與 PDF 下載。
 
 ## 閱讀方式
 
@@ -10,15 +10,26 @@
 
 講義保留核心觀念、公式、圖表、例題、自測與答案，以及原始影片和對應時間的連結。「補充解說／重算例題」標示保留原講義為自學加入的說明，並區分影片中的近似讀圖值與代數重算值。
 
-Markdown 版本由原 PDF 對應的 LaTeX 原稿轉換整理。可使用支援 LaTeX 數學式的 Markdown 閱讀器閱讀；講義中的頁碼仍對應原始 PDF，需要原版排版時可下載 PDF。
+Markdown 版本由原 PDF 對應的 LaTeX 原稿轉換整理。可使用支援 LaTeX 數學式的 Markdown 閱讀器閱讀；講義中的頁碼對應目前提供下載的 PDF。
+
+單元 01 已依[影片 18:00 的符號表](https://www.youtube.com/watch?v=42VW-8VFu5E&t=1080s)補齊 11 種射頻圖符，Markdown 與 PDF 均提供元件、圖示與功能的逐項對照，PDF 共 10 頁。
 
 ## 檔案配置
 
 - `notes/`：課程導讀與各單元的 Markdown 講義。
-- `notes/images/`：講義使用的圖表與示意圖。
-- `pdf/`：課程導讀與各單元的原始 PDF。
+- `notes/images/`：講義使用的圖表、示意圖與射頻符號的 SVG 原稿。
+- `pdf/`：課程導讀與各單元的 PDF 講義。
+- `scripts/`：重新產生射頻符號並同步更新單元 01 與課程目錄的工具。
 
 下載 Markdown 時請一併保留 `notes/images/`，以顯示講義中的插圖。
+
+## 重製單元 01 射頻符號
+
+使用 [uv](https://docs.astral.sh/uv/) 執行下列指令，會產生 11 組 SVG／PNG、更新 Markdown，並局部修訂既有 PDF。重複執行會替換新增的符號續頁，維持單元 01 共 10 頁。
+
+```bash
+uv run scripts/update_chapter1_rf_symbols.py
+```
 
 ## 講義目錄
 

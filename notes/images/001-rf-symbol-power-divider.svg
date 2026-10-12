@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80">
+<title>90° 分配器</title><desc>將訊號分成兩路，兩路輸出相位相差 90°。</desc>
+<rect width="160" height="80" fill="white"/>
+<g fill="none" stroke="#244452" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="40" x2="55" y2="40" /><polygon points="55.00,40.00 49.00,43.00 49.00,37.00" fill="#244452" stroke="none"/><rect x="55" y="18" width="50" height="44"/><text x="80" y="46" text-anchor="middle" font-family="sans-serif" font-size="19" fill="#244452" stroke="none">90°</text><line x1="105" y1="30" x2="145" y2="30" /><polygon points="145.00,30.00 139.00,33.00 139.00,27.00" fill="#244452" stroke="none"/><line x1="105" y1="50" x2="145" y2="50" /><polygon points="145.00,50.00 139.00,53.00 139.00,47.00" fill="#244452" stroke="none"/><text x="133" y="19" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#244452" stroke="none">0°</text><text x="131" y="68" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#244452" stroke="none">90°</text></g>
+</svg>

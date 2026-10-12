@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80">
+<title>混頻器</title><desc>與參考載波（LO）相乘，產生和頻與差頻，用於升／降頻。</desc>
+<rect width="160" height="80" fill="white"/>
+<g fill="none" stroke="#244452" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="35" x2="58" y2="35" /><polygon points="58.00,35.00 52.00,38.00 52.00,32.00" fill="#244452" stroke="none"/><circle cx="80" cy="35" r="22"/><path d="M 65 20 L 95 50 M 65 50 L 95 20"/><line x1="102" y1="35" x2="145" y2="35" /><polygon points="145.00,35.00 139.00,38.00 139.00,32.00" fill="#244452" stroke="none"/><line x1="80" y1="75" x2="80" y2="57" /><polygon points="80.00,57.00 83.00,63.00 77.00,63.00" fill="#244452" stroke="none"/><text x="99" y="76" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#244452" stroke="none">LO</text></g>
+</svg>

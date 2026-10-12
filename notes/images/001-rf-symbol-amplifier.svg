@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80">
+<title>放大器（PA／LNA）</title><desc>放大訊號；PA 位於傳送路徑，LNA 位於接收路徑。</desc>
+<rect width="160" height="80" fill="white"/>
+<g fill="none" stroke="#244452" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="40" x2="57" y2="40" /><polygon points="57.00,40.00 51.00,43.00 51.00,37.00" fill="#244452" stroke="none"/><path d="M 57 17 L 105 40 L 57 63 Z"/><line x1="105" y1="40" x2="145" y2="40" /><polygon points="145.00,40.00 139.00,43.00 139.00,37.00" fill="#244452" stroke="none"/></g>
+</svg>

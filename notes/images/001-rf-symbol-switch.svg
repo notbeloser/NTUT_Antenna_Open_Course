@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" viewBox="0 0 160 80">
+<title>開關</title><desc>接通、斷開或切換訊號路徑；圖示為開路狀態。</desc>
+<rect width="160" height="80" fill="white"/>
+<g fill="none" stroke="#244452" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><line x1="15" y1="40" x2="55" y2="40" /><polygon points="55.00,40.00 49.00,43.00 49.00,37.00" fill="#244452" stroke="none"/><rect x="55" y="16" width="50" height="48"/><line x1="55" y1="40" x2="65" y2="40" /><line x1="95" y1="40" x2="105" y2="40" /><circle cx="67" cy="40" r="2.5"/><circle cx="93" cy="40" r="2.5"/><line x1="69" y1="39" x2="89" y2="25" /><line x1="105" y1="40" x2="145" y2="40" /><polygon points="145.00,40.00 139.00,43.00 139.00,37.00" fill="#244452" stroke="none"/></g>
+</svg>
