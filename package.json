@@ -1,0 +1,18 @@
+{
+  "name": "ntut-antenna-open-course",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build:pdf": "node scripts/build-pdfs.mjs",
+    "release:pdf": "node scripts/release-pdfs.mjs",
+    "test": "node --test --test-isolation=none scripts/*.test.mjs",
+    "test:pdf": "node --test --test-isolation=none scripts/pdf-build.integration.mjs"
+  },
+  "devDependencies": {
+    "mathjax": "3.2.2",
+    "playwright": "1.64.0"
+  }
+}

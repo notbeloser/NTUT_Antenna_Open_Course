@@ -1,0 +1,93 @@
+name: Build and release PDFs
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    if: github.ref == 'refs/heads/master' && !github.event.deleted
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.13.0'
+          cache: npm
+      - name: Install pinned Pandoc and Chinese fonts
+        env:
+          PANDOC_VERSION: '3.8.3'
+          PANDOC_SHA256: c224fab89f827d3623380ecb7c1078c163c769c849a14ac27e8d3bfbb914c9b4
+        run: |
+          curl --fail --location --retry 3 "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz" --output "$RUNNER_TEMP/pandoc.tar.gz"
+          printf '%s  %s\n' "$PANDOC_SHA256" "$RUNNER_TEMP/pandoc.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/pandoc.tar.gz" -C "$RUNNER_TEMP"
+          echo "$RUNNER_TEMP/pandoc-${PANDOC_VERSION}/bin" >> "$GITHUB_PATH"
+          sudo apt-get update
+          sudo apt-get install --yes fonts-noto-cjk
+      - name: Install PDF dependencies
+        run: |
+          npm ci
+          npx playwright install --with-deps chromium
+      - name: Test PDF and Release validation
+        run: |
+          npm test
+          npm run test:pdf
+      - name: Build every Markdown document
+        run: npm run build:pdf
+      - name: Preserve PDFs for publication
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pdf-release-${{ github.sha }}
+          path: |
+            dist/assets/
+            dist/manifest.json
+          if-no-files-found: error
+          retention-days: 7
+          compression-level: 0
+          overwrite: true
+      - name: Preserve HTML diagnostics on failure
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pdf-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/html/
+          if-no-files-found: ignore
+          retention-days: 7
+
+  publish:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    # Keep every queued publication; the default single pending slot would drop pushes.
+    concurrency:
+      group: pdf-release-publication
+      queue: max
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.13.0'
+          package-manager-cache: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: pdf-release-${{ github.sha }}
+          path: dist/
+      - name: Publish complete PDF Release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: npm run release:pdf

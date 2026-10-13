@@ -1,0 +1,41 @@
+@page {
+  size: A4;
+  margin: 17mm;
+}
+
+html {
+  font-family: "Noto Sans CJK TC", "Noto Sans TC", sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.65;
+  color: #18212b;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body { margin: 0; }
+main { width: 176mm; margin: 0 auto; }
+h1 { font-size: 22pt; line-height: 1.35; }
+h2 { font-size: 16pt; margin-top: 1.5em; }
+h3 { font-size: 12pt; margin-top: 1.3em; }
+h1, h2, h3, h4 { break-after: avoid; }
+p, li { orphans: 3; widows: 3; overflow-wrap: anywhere; }
+a { color: #155e93; text-decoration: none; overflow-wrap: anywhere; }
+blockquote { margin: 1em 0; padding: .4em 1em; border-left: 3px solid #7594ad; background: #f3f6f8; }
+img { max-width: 100%; max-height: 220mm; height: auto; object-fit: contain; }
+figure { margin: 1em 0; }
+figure, img { break-inside: avoid; }
+table { width: 100%; border-collapse: collapse; font-size: 9pt; margin: 1em 0; }
+thead { display: table-header-group; }
+tr { break-inside: avoid; }
+th, td { border: 1px solid #ccd4dc; padding: .45em .55em; overflow-wrap: anywhere; }
+th { background: #edf2f6; }
+td img { vertical-align: middle; }
+pre { white-space: pre-wrap; overflow-wrap: anywhere; background: #f3f6f8; padding: .8em; }
+code { font-family: "Noto Sans Mono CJK TC", monospace; font-size: .9em; }
+.math.display { display: block; margin: .9em 0; break-inside: avoid; }
+mjx-container[jax="CHTML"] { max-width: 100%; }
+mjx-container .mjx-utext { font-family: "Noto Sans CJK TC", "Noto Sans TC", sans-serif !important; }
+
+@media print {
+  main { width: auto; }
+}

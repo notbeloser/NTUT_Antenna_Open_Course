@@ -1,5 +1,7 @@
 # 天線開放式課程講義
 
+[![PDF 建置與發布](https://github.com/notbeloser/NTUT_Antenna_Open_Course/actions/workflows/pdf-release.yml/badge.svg)](https://github.com/notbeloser/NTUT_Antenna_Open_Course/actions/workflows/pdf-release.yml)
+
 本專案是我個人整理的天線開放式課程講義，供自學與複習使用。
 
 課程來源為陳晏笙老師的[「天線」開放式課程](https://www.youtube.com/playlist?list=PL68D2uCy1WTMR9iwyjtOZcjGMom4KZEhZ)。本 repo 收錄課程導讀及 28 個單元，每份講義均提供 Markdown 閱讀版本。
@@ -13,6 +15,28 @@
 Markdown 版本由原講義的 LaTeX 原稿轉換整理，公式採用 [GitHub 支援的數學語法](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)，建議直接在 GitHub 閱讀。講義中的頁碼保留原講義編排，閱讀 Markdown 時請依章節標題定位。
 
 單元 01 已依[影片 18:00 的符號表](https://www.youtube.com/watch?v=42VW-8VFu5E&t=1080s)補齊 11 種射頻圖符，提供元件、圖示與功能的逐項對照。
+
+## PDF 下載
+
+前往 [GitHub Releases](https://github.com/notbeloser/NTUT_Antenna_Open_Course/releases) 下載各份 PDF，或下載 `antenna-course-pdfs.zip` 取得整套講義。Release 提供中文講義下載目錄與附件標籤；下載的單份附件使用 ASCII 檔名與路徑雜湊，避免 GitHub 重寫特殊字元造成撞名。ZIP 保留原始目錄結構及完整中文檔名。
+
+每次 push 到 `master`，GitHub Actions 都會將所有受 Git 追蹤的 `.md` 轉成 PDF，包含 README、導讀與各單元。一個 push 包含多個 commits 時，以最後一個 commit 的內容建置。每次成功建置會建立 `pdf-<完整 commit SHA>` 的獨立 Release，保留歷史版本；全部 PDF 與 ZIP 上傳完整後才公開。最新主分支版本會標示為 Latest。
+
+也可以在 [Actions 頁面](https://github.com/notbeloser/NTUT_Antenna_Open_Course/actions/workflows/pdf-release.yml) 選擇 `master`，手動執行 **Run workflow**。若建置或上傳失敗，可重跑該次執行；發布流程會修復未完成的 draft，並驗證已發布版本的附件，避免同一 commit 重複發布。連續推送的發布工作會依序排隊，GitHub 的佇列上限為 100 個待發布工作。
+
+### 在本機產生 PDF
+
+需要 Node.js 24 以上、[Pandoc 3.8.3](https://github.com/jgm/pandoc/releases/tag/3.8.3)、Python 3，以及繁體中文 Noto 字型。Ubuntu 可先執行 `sudo apt-get install fonts-noto-cjk`，再於專案根目錄執行：
+
+```sh
+npm ci
+npx playwright install --with-deps chromium
+npm test
+npm run test:pdf
+npm run build:pdf
+```
+
+PDF 位於 `dist/pdf/`，整套 ZIP 位於 `dist/assets/antenna-course-pdfs.zip`。若 Pandoc 不在 PATH，可透過 `PANDOC_PATH` 指定執行檔。數學排版使用本地 MathJax；PDF 保留插圖及影片連結，講義間的 Markdown 連結則指向對應 commit 的 GitHub 版本。
 
 ## 檔案配置
 
