@@ -2,7 +2,7 @@
 
 [![PDF 建置與發布](https://github.com/notbeloser/NTUT_Antenna_Open_Course/actions/workflows/pdf-release.yml/badge.svg)](https://github.com/notbeloser/NTUT_Antenna_Open_Course/actions/workflows/pdf-release.yml)
 
-本專案是我個人整理的天線開放式課程講義，供自學與複習使用。
+本專案是我個人整理的天線開放式課程中文精華講義，供自學、影片對照與複習使用。
 
 課程來源為陳晏笙老師的[「天線」開放式課程](https://www.youtube.com/playlist?list=PL68D2uCy1WTMR9iwyjtOZcjGMom4KZEhZ)。本 repo 收錄課程導讀及 28 個單元，每份講義均提供 Markdown 閱讀版本。
 
@@ -10,11 +10,11 @@
 
 建議先閱讀[課程導讀與目錄](notes/000_課程導讀與目錄.md)，再依單元順序學習：通訊與輻射基礎、電路參數、匹配網路、輻射參數、天線家族，最後進入天線陣列。
 
-講義保留核心觀念、公式、圖表、例題、自測與答案，以及原始影片和對應時間的連結。「補充解說／重算例題」標示保留原講義為自學加入的說明，並區分影片中的近似讀圖值與代數重算值。
+每個單元以老師投影片的頁序為正文主線，使用中文說明觀念、公式條件、關鍵推導、圖表與課堂例題，並整合對應的口述及板書。首頁提供原始講義、頁碼及影片定位；自行補充的算例、查表資料與自測集中章末，與老師的課堂內容區分。圖上近似讀值、代數重算值與實測數據也會分別標示。
 
-Markdown 版本由原講義的 LaTeX 原稿轉換整理，公式採用 [GitHub 支援的數學語法](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)，建議直接在 GitHub 閱讀。講義中的頁碼保留原講義編排，閱讀 Markdown 時請依章節標題定位。
+公式採用 [GitHub 支援的數學語法](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions)，建議直接在 GitHub 閱讀。「講義頁碼」指老師原始 PDF 的頁碼，不是本專案輸出 PDF 的頁數；重新建置後的頁數會隨內容與排版變動。
 
-單元 01 已依[影片 18:00 的符號表](https://www.youtube.com/watch?v=42VW-8VFu5E&t=1080s)補齊 11 種射頻圖符，提供元件、圖示與功能的逐項對照。
+老師的六份講義分別對應單元 01–03、04–11、12–14、15–20、21–22、23–28；來源與頁碼索引見[課程導讀](notes/000_課程導讀與目錄.md)。單元 01 保留完整射頻圖符與調變圖，單元 02 保留反射／散射／繞射尺寸對照與四頁 Fading 推導。
 
 ## PDF 下載
 
